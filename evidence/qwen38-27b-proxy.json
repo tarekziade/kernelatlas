@@ -1,0 +1,225 @@
+{
+  "source": {
+    "model_id": "Qwen/Qwen3.8-27B",
+    "revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0"
+  },
+  "checkpoint_tensor_metadata": {
+    "BF16_elements": 27781427952,
+    "source": "Hugging Face model API safetensors.parameters"
+  },
+  "memory_bytes": 34359738368,
+  "weight_source": "random",
+  "scope": {
+    "scope": "first four text decoder layers; random BF16; reduced embedding and LM head; vision omitted",
+    "original_vocab": 248320,
+    "proxy_vocab": 256,
+    "original_layers": 64,
+    "proxy_layers": [
+      "linear_attention",
+      "linear_attention",
+      "linear_attention",
+      "full_attention"
+    ],
+    "model_parameter_elements": 1524701344
+  },
+  "hardware": "Apple M5",
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "dtype": "torch.bfloat16",
+  "full_meta_inventory": {
+    "model": "Qwen3_5ForConditionalGeneration",
+    "parameter_elements": 27356728560,
+    "device": "meta"
+  },
+  "phases": {
+    "prefill": {
+      "raw_trace": "prefill.trace.json",
+      "event_file": "prefill.events.json",
+      "aten_host_events": 2093,
+      "module_calls": 66,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        41.935666,
+        38.323,
+        40.227083,
+        38.114708,
+        38.67775,
+        38.355375,
+        38.206584,
+        38.43125,
+        38.57975
+      ],
+      "median_ms": 38.43125,
+      "output_shape": [
+        1,
+        32,
+        256
+      ],
+      "cache_length": 32,
+      "profiler_activities": [
+        "CPU"
+      ]
+    },
+    "decode": {
+      "raw_trace": "decode.trace.json",
+      "event_file": "decode.events.json",
+      "aten_host_events": 1602,
+      "module_calls": 66,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        29.516583,
+        29.339833,
+        28.791625,
+        31.34025,
+        31.93225,
+        30.725959,
+        30.264625,
+        29.370958,
+        30.163792
+      ],
+      "median_ms": 30.163792,
+      "output_shape": [
+        1,
+        1,
+        256
+      ],
+      "cache_length": 33,
+      "profiler_activities": [
+        "CPU"
+      ]
+    }
+  },
+  "discovery": {
+    "candidate_groups": 26,
+    "mlp_evidence": {
+      "operators": [
+        "aten.silu.default",
+        "aten.mul.Tensor"
+      ],
+      "intermediate": {
+        "shape": [
+          1,
+          32,
+          17408
+        ],
+        "stride": [
+          557056,
+          17408,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "mps:0",
+        "logical_bytes": 1114112,
+        "floating": true
+      },
+      "observations": [
+        {
+          "producer": 199,
+          "consumer": 201,
+          "output": 0,
+          "producer_scope": "model.layers.0.mlp.act_fn",
+          "consumer_scope": "model.layers.0.mlp"
+        },
+        {
+          "producer": 365,
+          "consumer": 367,
+          "output": 0,
+          "producer_scope": "model.layers.1.mlp.act_fn",
+          "consumer_scope": "model.layers.1.mlp"
+        },
+        {
+          "producer": 531,
+          "consumer": 533,
+          "output": 0,
+          "producer_scope": "model.layers.2.mlp.act_fn",
+          "consumer_scope": "model.layers.2.mlp"
+        },
+        {
+          "producer": 626,
+          "consumer": 628,
+          "output": 0,
+          "producer_scope": "model.layers.3.mlp.act_fn",
+          "consumer_scope": "model.layers.3.mlp"
+        }
+      ],
+      "status": "hypothesis",
+      "backend_fusion": "unknown",
+      "kernel_compatibility": "unverified",
+      "measured_savings_ms": null,
+      "occurrences": 4,
+      "total_logical_intermediate_bytes": 4456448
+    },
+    "hub_catalog_size": 649
+  },
+  "decode_trial": {
+    "variant": "tarekziade/gated-delta-net-decode-metal",
+    "revision": "c79b784f6f5a6d0bac90a761548c3957b8b4ba65",
+    "observed": [
+      {
+        "layer": 0,
+        "eligible": true,
+        "mask_none": true,
+        "conv_dtype": "torch.bfloat16",
+        "conv_contiguous": true,
+        "recurrent_dtype": "torch.float32",
+        "recurrent_contiguous": true
+      },
+      {
+        "layer": 1,
+        "eligible": true,
+        "mask_none": true,
+        "conv_dtype": "torch.bfloat16",
+        "conv_contiguous": true,
+        "recurrent_dtype": "torch.float32",
+        "recurrent_contiguous": true
+      },
+      {
+        "layer": 2,
+        "eligible": true,
+        "mask_none": true,
+        "conv_dtype": "torch.bfloat16",
+        "conv_contiguous": true,
+        "recurrent_dtype": "torch.float32",
+        "recurrent_contiguous": true
+      }
+    ],
+    "dispatched": 12,
+    "prefill_tokens": 32,
+    "decode_input_ids": [
+      32,
+      33,
+      34,
+      35
+    ],
+    "rtol": 0.016,
+    "atol": 0.02,
+    "correctness": [
+      {
+        "max_abs": 0.03125,
+        "top1_equal": true,
+        "within_tolerance": false
+      },
+      {
+        "max_abs": 0.0390625,
+        "top1_equal": true,
+        "within_tolerance": false
+      },
+      {
+        "max_abs": 0.0390625,
+        "top1_equal": true,
+        "within_tolerance": false
+      },
+      {
+        "max_abs": 0.0361328125,
+        "top1_equal": true,
+        "within_tolerance": false
+      }
+    ],
+    "selection_method": "separate search for gated-delta Metal decode after observing original forwards and reference fallback",
+    "scope": "first three linear-attention layers of the four-layer proxy",
+    "speedup": null
+  },
+  "artifacts": "runs/qwen38-27b-config-probe/"
+}

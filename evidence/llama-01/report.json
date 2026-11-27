@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-11-26T08:14:34.051529+00:00",
+  "weights": "random seed 0",
+  "config": {
+    "transformers_version": "5.20.1",
+    "architectures": null,
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": null,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 128,
+    "hidden_size": 64,
+    "intermediate_size": 128,
+    "num_hidden_layers": 2,
+    "num_attention_heads": 4,
+    "num_key_value_heads": 2,
+    "hidden_act": "silu",
+    "max_position_embeddings": 2048,
+    "initializer_range": 0.02,
+    "rms_norm_eps": 1e-06,
+    "use_cache": true,
+    "pad_token_id": null,
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pretraining_tp": 1,
+    "tie_word_embeddings": false,
+    "rope_parameters": {
+      "rope_theta": 10000.0,
+      "rope_type": "default"
+    },
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "mlp_bias": false,
+    "head_dim": 16,
+    "_name_or_path": "",
+    "model_type": "llama",
+    "output_attentions": false
+  },
+  "attention": "sdpa",
+  "dtype": "torch.float32",
+  "device": "mps:0",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.14.1",
+  "transformers": "5.20.1",
+  "gpu_dispatch_attribution": "unvalidated",
+  "phases": {
+    "prefill": {
+      "raw_trace": "prefill.trace.json",
+      "event_file": "prefill.events.json",
+      "aten_host_events": 384,
+      "module_calls": 32,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        2.103541,
+        1.547458,
+        1.448208,
+        1.465834,
+        1.47775,
+        1.411,
+        1.35025,
+        1.326458,
+        1.326125
+      ],
+      "median_ms": 1.448208,
+      "output_shape": [
+        1,
+        32,
+        128
+      ],
+      "cache_length": 32,
+      "profiler_activities": [
+        "CPU"
+      ]
+    },
+    "decode": {
+      "raw_trace": "decode.trace.json",
+      "event_file": "decode.events.json",
+      "aten_host_events": 342,
+      "module_calls": 32,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        1.123709,
+        1.116709,
+        1.071,
+        1.183209,
+        1.091667,
+        1.108208,
+        0.704625,
+        0.664875,
+        0.627417
+      ],
+      "median_ms": 1.091667,
+      "output_shape": [
+        1,
+        1,
+        128
+      ],
+      "cache_length": 33,
+      "profiler_activities": [
+        "CPU"
+      ]
+    }
+  }
+}

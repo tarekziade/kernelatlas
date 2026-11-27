@@ -1,0 +1,59 @@
+[
+  {
+    "workload": {
+      "model_id": "EleutherAI/pythia-160m",
+      "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "device": "mps:0",
+      "hardware": "Apple M5",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "dtype": "torch.float32"
+    },
+    "repo_id": "kernels-community/activation",
+    "symbol": "Gelu",
+    "revision": "281eca0bef25176754f9e55cee447a7e99264e01",
+    "outcome": "The 32-token prefill trial exited with SIGTRAP in the Hub GELU implementation at MPSHooks::getCommandBuffer (dispatch queue assertion).",
+    "observed": "2026-11-26",
+    "local_crash_report": "Python-2026-11-26-120108.ips",
+    "summary": "The replacement crashed during prompt processing."
+  },
+  {
+    "workload": {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "device": "mps:0",
+      "hardware": "Apple M5",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "dtype": "torch.bfloat16"
+    },
+    "weight_mode": "int8",
+    "repo_id": "kernels-community/mlx-rmsnorm",
+    "symbol": "RMSNorm",
+    "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc",
+    "outcome": "BF16 with INT8 Linear weights, 32-token prefill. The RMSNorm trial failed the eager logit check at rtol 0.016 and atol 0.02, with 36,647 of 1,572,864 elements outside tolerance and maximum absolute error 0.4375.",
+    "observed": "2026-11-26",
+    "summary": "In a saved test, 2.3% of output scores fell outside the allowed error."
+  },
+  {
+    "workload": {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "device": "mps:0",
+      "hardware": "Apple M5",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "dtype": "torch.bfloat16"
+    },
+    "weight_mode": "none",
+    "repo_id": "kernels-community/mlx-rmsnorm",
+    "symbol": "RMSNorm",
+    "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc",
+    "outcome": "Pretrained BF16, 32-token prefill. Binding the adapter at 113 RMSNorm sites failed the eager logit check at rtol 0.016 and atol 0.02. 1,373,132 of 4,861,952 logits exceeded tolerance. Maximum absolute error was 0.5.",
+    "observed": "2026-11-26",
+    "summary": "In a saved test, 28.2% of output scores fell outside the allowed error."
+  }
+]

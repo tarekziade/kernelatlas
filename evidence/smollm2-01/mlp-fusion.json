@@ -1,0 +1,142 @@
+{
+  "pattern": "silu_mul",
+  "shape": [
+    1,
+    32,
+    1536
+  ],
+  "torch": "2.14.1",
+  "prompt_length": 32,
+  "device": "mps:0",
+  "dtype": "torch.float32",
+  "sites": {
+    "module/model.layers.0.mlp": [
+      175,
+      183
+    ],
+    "module/model.layers.1.mlp": [
+      323,
+      331
+    ],
+    "module/model.layers.2.mlp": [
+      471,
+      479
+    ],
+    "module/model.layers.3.mlp": [
+      619,
+      627
+    ],
+    "module/model.layers.4.mlp": [
+      767,
+      775
+    ],
+    "module/model.layers.5.mlp": [
+      915,
+      923
+    ],
+    "module/model.layers.6.mlp": [
+      1063,
+      1071
+    ],
+    "module/model.layers.7.mlp": [
+      1211,
+      1219
+    ],
+    "module/model.layers.8.mlp": [
+      1359,
+      1367
+    ],
+    "module/model.layers.9.mlp": [
+      1507,
+      1515
+    ],
+    "module/model.layers.10.mlp": [
+      1655,
+      1663
+    ],
+    "module/model.layers.11.mlp": [
+      1803,
+      1811
+    ],
+    "module/model.layers.12.mlp": [
+      1951,
+      1959
+    ],
+    "module/model.layers.13.mlp": [
+      2099,
+      2107
+    ],
+    "module/model.layers.14.mlp": [
+      2247,
+      2255
+    ],
+    "module/model.layers.15.mlp": [
+      2395,
+      2403
+    ],
+    "module/model.layers.16.mlp": [
+      2543,
+      2551
+    ],
+    "module/model.layers.17.mlp": [
+      2691,
+      2699
+    ],
+    "module/model.layers.18.mlp": [
+      2839,
+      2847
+    ],
+    "module/model.layers.19.mlp": [
+      2987,
+      2995
+    ],
+    "module/model.layers.20.mlp": [
+      3135,
+      3143
+    ],
+    "module/model.layers.21.mlp": [
+      3283,
+      3291
+    ],
+    "module/model.layers.22.mlp": [
+      3431,
+      3439
+    ],
+    "module/model.layers.23.mlp": [
+      3579,
+      3587
+    ],
+    "module/model.layers.24.mlp": [
+      3727,
+      3735
+    ],
+    "module/model.layers.25.mlp": [
+      3875,
+      3883
+    ],
+    "module/model.layers.26.mlp": [
+      4023,
+      4031
+    ],
+    "module/model.layers.27.mlp": [
+      4171,
+      4179
+    ],
+    "module/model.layers.28.mlp": [
+      4319,
+      4327
+    ],
+    "module/model.layers.29.mlp": [
+      4467,
+      4475
+    ]
+  },
+  "runtime_evidence": "prefill.events.json",
+  "graph_method": "make_fx on the configured MLP with meta tensors",
+  "forward_source": "    def forward(self, x):\n        down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))\n        return down_proj\n",
+  "graph": "\n\n\ndef forward(self, arg0_1):\n    _param_constant0 = self._param_constant0\n    t = torch.ops.aten.t.default(_param_constant0);  _param_constant0 = None\n    view = torch.ops.aten.view.default(arg0_1, [32, 576])\n    mm = torch.ops.aten.mm.default(view, t);  view = t = None\n    _unsafe_view = torch.ops.aten._unsafe_view.default(mm, [1, 32, 1536]);  mm = None\n    silu = torch.ops.aten.silu.default(_unsafe_view);  _unsafe_view = None\n    _param_constant1 = self._param_constant1\n    t_1 = torch.ops.aten.t.default(_param_constant1);  _param_constant1 = None\n    view_1 = torch.ops.aten.view.default(arg0_1, [32, 576]);  arg0_1 = None\n    mm_1 = torch.ops.aten.mm.default(view_1, t_1);  view_1 = t_1 = None\n    _unsafe_view_1 = torch.ops.aten._unsafe_view.default(mm_1, [1, 32, 1536]);  mm_1 = None\n    mul = torch.ops.aten.mul.Tensor(silu, _unsafe_view_1);  silu = _unsafe_view_1 = None\n    _param_constant2 = self._param_constant2\n    t_2 = torch.ops.aten.t.default(_param_constant2);  _param_constant2 = None\n    view_2 = torch.ops.aten.view.default(mul, [32, 1536]);  mul = None\n    mm_2 = torch.ops.aten.mm.default(view_2, t_2);  view_2 = t_2 = None\n    _unsafe_view_2 = torch.ops.aten._unsafe_view.default(mm_2, [1, 32, 576]);  mm_2 = None\n    return _unsafe_view_2\n    ",
+  "status": "hypothesis",
+  "dispatch_fusion": "unknown",
+  "registry_compatibility": "unknown",
+  "measured_savings_ms": null
+}

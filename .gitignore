@@ -1,0 +1,9 @@
+/runs/
+__pycache__/
+/build/
+/dist/
+/*.egg-info/
+/.venv/
+
+# Local working plan (not published)
+/docs/PLAN.md

@@ -1,0 +1,225 @@
+{
+  "config_source": {
+    "model_id": "thinkingmachines/Inkling-2-Mini",
+    "revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195"
+  },
+  "scope": "Reduced random-weight BF16 text-only proxy. Excludes checkpoint NVFP4 execution, vision and multi-token prediction.",
+  "workload": {
+    "scope": "random BF16 text decoder only, reduced layers and vocabulary",
+    "reference_layer_indices": [
+      0,
+      5,
+      6,
+      11,
+      18,
+      23
+    ],
+    "original": {
+      "vocab_size": 201024,
+      "bos_token_id": null,
+      "eos_token_id": 200006,
+      "unpadded_vocab_size": 200058,
+      "n_routed_experts": 128,
+      "loop_layer_index_start": 6,
+      "loop_layer_index_end": 18,
+      "n_layers_per_attn_res_block": 6,
+      "num_hidden_layers": 24,
+      "layer_types": [
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid_sliding",
+        "hybrid"
+      ]
+    },
+    "effective": {
+      "vocab_size": 256,
+      "bos_token_id": 1,
+      "eos_token_id": 2,
+      "unpadded_vocab_size": 256,
+      "n_routed_experts": 16,
+      "loop_layer_index_start": 2,
+      "loop_layer_index_end": 4,
+      "n_layers_per_attn_res_block": 2,
+      "num_hidden_layers": 6,
+      "layer_types": [
+        "hybrid_sliding",
+        "hybrid",
+        "hybrid_sliding",
+        "hybrid",
+        "hybrid_sliding",
+        "hybrid"
+      ]
+    },
+    "model_parameter_elements": 932712192
+  },
+  "eager_prefill_layer_visits": {
+    "module/model.layers.0": 1,
+    "module/model.layers.1": 1,
+    "module/model.layers.2": 3,
+    "module/model.layers.3": 3,
+    "module/model.layers.4": 1,
+    "module/model.layers.5": 1
+  },
+  "hardware": "Apple M5",
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "dtype": "torch.bfloat16",
+  "phases": {
+    "prefill": {
+      "raw_trace": "prefill.trace.json",
+      "event_file": "prefill.events.json",
+      "aten_host_events": 12034,
+      "module_calls": 505,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        60.646792,
+        60.84825,
+        63.148375,
+        61.874375,
+        60.535334,
+        60.851792,
+        60.670417,
+        60.504041,
+        60.431458
+      ],
+      "median_ms": 60.670417,
+      "output_shape": [
+        1,
+        32,
+        256
+      ],
+      "cache_length": 32,
+      "profiler_activities": [
+        "CPU"
+      ]
+    },
+    "decode": {
+      "raw_trace": "decode.trace.json",
+      "event_file": "decode.events.json",
+      "aten_host_events": 11553,
+      "module_calls": 505,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        32.401417,
+        30.900667,
+        33.055667,
+        32.946416,
+        35.035375,
+        63.41475,
+        41.30225,
+        35.29125,
+        33.381375
+      ],
+      "median_ms": 33.381375,
+      "output_shape": [
+        1,
+        1,
+        256
+      ],
+      "cache_length": 33,
+      "profiler_activities": [
+        "CPU"
+      ]
+    }
+  },
+  "candidate_groups": 53,
+  "largest_by_logical_intermediate_bytes": {
+    "operators": [
+      "aten.mul.Tensor",
+      "aten.mul.Tensor"
+    ],
+    "occurrences": 30,
+    "total_logical_intermediate_bytes": 35389440
+  },
+  "hub_catalog_size": 649,
+  "kernel_check": {
+    "status": "rejected",
+    "eager_repeat_equal": true,
+    "rtol": 0.016,
+    "atol": 0.02,
+    "selected": [
+      {
+        "repo_id": "kernels-community/mlx-rmsnorm",
+        "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc",
+        "symbol": "RMSNorm",
+        "sites": [
+          "model.embed_tokens.embed_norm",
+          "model.layers.0.input_layernorm",
+          "model.layers.0.post_attention_layernorm",
+          "model.layers.1.q_input_layernorm",
+          "model.layers.1.k_input_layernorm",
+          "model.layers.1.v_input_layernorm",
+          "model.layers.1.post_attention_layernorm",
+          "model.layers.2.input_layernorm",
+          "model.layers.2.post_attention_layernorm",
+          "model.layers.3.q_input_layernorm",
+          "model.layers.3.k_input_layernorm",
+          "model.layers.3.v_input_layernorm",
+          "model.layers.3.post_attention_layernorm",
+          "model.layers.4.input_layernorm",
+          "model.layers.4.post_attention_layernorm",
+          "model.layers.5.q_input_layernorm",
+          "model.layers.5.k_input_layernorm",
+          "model.layers.5.v_input_layernorm",
+          "model.layers.5.post_attention_layernorm",
+          "model.norm"
+        ]
+      }
+    ],
+    "results": [
+      {
+        "phase": "prefill",
+        "max_abs_error": 4.071084499359131,
+        "within_tolerance": false,
+        "last_token_top1_equal": false
+      },
+      {
+        "phase": "decode_1",
+        "max_abs_error": 4.460996150970459,
+        "within_tolerance": false,
+        "last_token_top1_equal": false
+      },
+      {
+        "phase": "decode_2",
+        "max_abs_error": 3.3012266159057617,
+        "within_tolerance": false,
+        "last_token_top1_equal": false
+      },
+      {
+        "phase": "decode_3",
+        "max_abs_error": 3.0436582565307617,
+        "within_tolerance": false,
+        "last_token_top1_equal": false
+      },
+      {
+        "phase": "decode_4",
+        "max_abs_error": 2.5626220703125,
+        "within_tolerance": false,
+        "last_token_top1_equal": false
+      }
+    ]
+  },
+  "measured_replacement_speedup": null
+}

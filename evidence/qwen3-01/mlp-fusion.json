@@ -1,0 +1,30 @@
+{
+  "pattern": "silu_mul",
+  "shape": [
+    1,
+    32,
+    128
+  ],
+  "torch": "2.14.1",
+  "prompt_length": 32,
+  "device": "mps:0",
+  "dtype": "torch.float32",
+  "sites": {
+    "module/model.layers.0.mlp": [
+      232,
+      240
+    ],
+    "module/model.layers.1.mlp": [
+      437,
+      445
+    ]
+  },
+  "runtime_evidence": "prefill.events.json",
+  "graph_method": "make_fx on the configured MLP with meta tensors",
+  "forward_source": "    def forward(self, x):\n        down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))\n        return down_proj\n",
+  "graph": "\n\n\ndef forward(self, arg0_1):\n    _param_constant0 = self._param_constant0\n    t = torch.ops.aten.t.default(_param_constant0);  _param_constant0 = None\n    view = torch.ops.aten.view.default(arg0_1, [32, 64])\n    mm = torch.ops.aten.mm.default(view, t);  view = t = None\n    _unsafe_view = torch.ops.aten._unsafe_view.default(mm, [1, 32, 128]);  mm = None\n    silu = torch.ops.aten.silu.default(_unsafe_view);  _unsafe_view = None\n    _param_constant1 = self._param_constant1\n    t_1 = torch.ops.aten.t.default(_param_constant1);  _param_constant1 = None\n    view_1 = torch.ops.aten.view.default(arg0_1, [32, 64]);  arg0_1 = None\n    mm_1 = torch.ops.aten.mm.default(view_1, t_1);  view_1 = t_1 = None\n    _unsafe_view_1 = torch.ops.aten._unsafe_view.default(mm_1, [1, 32, 128]);  mm_1 = None\n    mul = torch.ops.aten.mul.Tensor(silu, _unsafe_view_1);  silu = _unsafe_view_1 = None\n    _param_constant2 = self._param_constant2\n    t_2 = torch.ops.aten.t.default(_param_constant2);  _param_constant2 = None\n    view_2 = torch.ops.aten.view.default(mul, [32, 128]);  mul = None\n    mm_2 = torch.ops.aten.mm.default(view_2, t_2);  view_2 = t_2 = None\n    _unsafe_view_2 = torch.ops.aten._unsafe_view.default(mm_2, [1, 32, 64]);  mm_2 = None\n    return _unsafe_view_2\n    ",
+  "status": "hypothesis",
+  "dispatch_fusion": "unknown",
+  "registry_compatibility": "unknown",
+  "measured_savings_ms": null
+}

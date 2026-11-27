@@ -1,0 +1,1040 @@
+{
+  "scope": {
+    "model_id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "torch": "2.15.0",
+    "transformers": "5.24.1",
+    "hardware": "Apple M5",
+    "device": "mps:0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "dtype": "torch.bfloat16",
+    "attention": "sdpa",
+    "precision": {
+      "requested_dtype": "auto",
+      "dtype": "torch.bfloat16",
+      "requested_quantization": "auto",
+      "weights": {
+        "mode": "none"
+      }
+    },
+    "kernels": "0.18.2",
+    "workload": {
+      "mode": "full_prompt_logits_plus_one_cached_forward",
+      "prompt_length": 32
+    },
+    "configs": [
+      {
+        "name": "automatic",
+        "use_kernels": true
+      },
+      {
+        "name": "selective",
+        "use_kernels": true,
+        "kernel_mapping": {
+          "RMSNorm": [
+            "kernels-community/mlx-rmsnorm:RMSNorm",
+            {
+              "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc"
+            }
+          ]
+        },
+        "inherit_mapping": false
+      },
+      {
+        "name": "attention_only",
+        "use_kernels": false,
+        "attn_implementation": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32"
+      },
+      {
+        "name": "combined",
+        "use_kernels": true,
+        "kernel_mapping": {
+          "RMSNorm": [
+            "kernels-community/mlx-rmsnorm:RMSNorm",
+            {
+              "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc"
+            }
+          ]
+        },
+        "inherit_mapping": false,
+        "attn_implementation": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32"
+      }
+    ],
+    "adapter_revisions": {
+      "RMSNorm": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc",
+      "attention": "288199f52663a36544b31fe7b69f53586eb7be32"
+    }
+  },
+  "source_directory": "runs/qwen06-hub-summary-20261127T074724Z/compile-check-20261127T075455Z",
+  "experiments": {
+    "compile-dynamic": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 1832308,
+          "max_abs_error": 0.5625,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 91177,
+          "max_abs_error": 0.59375,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 15.04983179201372,
+      "reference_cache": "DynamicCache",
+      "actual_cache": "DynamicCache",
+      "verdict": "failed_logits",
+      "graphs": 2,
+      "graph_breaks": {},
+      "raw_sha256": "1becc11d2edcad3b1b40155d395529729e4e5bdcab005d009431a110e98c913d"
+    },
+    "compile-static": {
+      "cache": "static",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 1832308,
+          "max_abs_error": 0.5625,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 91177,
+          "max_abs_error": 0.59375,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 16.410172583011445,
+      "reference_cache": "StaticCache",
+      "actual_cache": "StaticCache",
+      "verdict": "failed_logits",
+      "graphs": 2,
+      "graph_breaks": {},
+      "raw_sha256": "f64c03fbab6cc180fa0bdd3d8127c2af3ce5db3a93fc8bc03f320d7275723f87"
+    },
+    "dynamic-preserve-casts": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "decode_only": false,
+      "preserve_casts": true,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 1431851,
+          "max_abs_error": 0.453125,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 69662,
+          "max_abs_error": 0.421875,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 15.660527249972802,
+      "reference_cache": "DynamicCache",
+      "actual_cache": "DynamicCache",
+      "verdict": "failed_logits",
+      "graphs": 2,
+      "graph_breaks": {},
+      "raw_sha256": "b16132624bc7bd88a200432877fde9b0e7e8e8da93d5303fe33a27b2ccfd993f"
+    },
+    "eager-static": {
+      "cache": "static",
+      "backend": "eager",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 0,
+          "logits": 1063552,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 0.05079412501072511,
+      "reference_cache": "DynamicCache",
+      "actual_cache": "StaticCache",
+      "verdict": "slower",
+      "timing": {
+        "prefill": {
+          "incumbent_ms": 23.4971665,
+          "candidate_ms": 30.1911045,
+          "noise_ms": 0.33168800000000154,
+          "floor_ms": 0.33168800000000154,
+          "median_paired_saving_ms": -6.694042,
+          "wins_above_floor": 0,
+          "losses_above_floor": 24
+        },
+        "decode": {
+          "incumbent_ms": 16.0674585,
+          "candidate_ms": 16.334,
+          "noise_ms": 0.34114549999999966,
+          "floor_ms": 0.34114549999999966,
+          "median_paired_saving_ms": -0.2047914999999998,
+          "wins_above_floor": 1,
+          "losses_above_floor": 7
+        },
+        "total": {
+          "incumbent_ms": 39.576916499999996,
+          "candidate_ms": 46.340292000000005,
+          "noise_ms": 0.5351875000000028,
+          "floor_ms": 0.5351875000000028,
+          "median_paired_saving_ms": -6.956125000000004,
+          "wins_above_floor": 0,
+          "losses_above_floor": 24
+        }
+      },
+      "graphs": 0,
+      "graph_breaks": {},
+      "raw_sha256": "7968aeac54553cbb42cf7a56d715c1014b78a02d37b9112957feac95f3e712d0",
+      "paired_total_ms": {
+        "incumbent": [
+          39.783417,
+          41.475958,
+          39.708458,
+          41.647917,
+          39.313042,
+          39.504167,
+          39.52625,
+          38.616334,
+          39.122,
+          40.596708,
+          40.522833,
+          40.259917,
+          40.760209,
+          39.627583,
+          40.991875,
+          39.747792,
+          39.254167,
+          38.986209,
+          38.985,
+          40.398916,
+          38.645167,
+          39.341208,
+          39.299667,
+          38.081333
+        ],
+        "control": [
+          39.548042,
+          39.7285,
+          38.98725,
+          40.575166,
+          39.566792,
+          39.464083,
+          38.828708,
+          39.233375,
+          39.103709,
+          40.835,
+          39.469416,
+          40.514125,
+          40.233292,
+          41.728083,
+          41.517958,
+          40.745708,
+          39.167916,
+          39.9245,
+          39.312792,
+          40.970875,
+          39.588083,
+          38.862375,
+          39.843125,
+          38.361041
+        ],
+        "candidate": [
+          47.196084,
+          45.8505,
+          47.30925,
+          47.982166,
+          48.508792,
+          46.10775,
+          46.197166,
+          46.400041,
+          46.352625,
+          47.569875,
+          48.572708,
+          46.033792,
+          46.327959,
+          48.169958,
+          46.122917,
+          46.686875,
+          45.794666,
+          45.524542,
+          47.109792,
+          48.741875,
+          45.980583,
+          46.195417,
+          45.518291,
+          45.6305
+        ]
+      }
+    },
+    "hub-attention_only": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "hub_config": {
+        "name": "attention_only",
+        "use_kernels": false,
+        "attn_implementation": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32",
+        "python": "import torch\nfrom transformers import AutoModelForCausalLM\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    'Qwen/Qwen3-0.6B',\n    revision='c1899de289a04d12100db370d81485cdf75e47ca',\n    dtype=torch.bfloat16,\n    device_map='mps',\n    use_kernels=False,\n    attn_implementation='kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32',\n).eval()"
+      },
+      "reference": "native with the same regional compilation",
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "bindings": {},
+      "bound_module_calls": {},
+      "attention_interface_calls": 56,
+      "checks": [],
+      "verdict": "incorrect",
+      "failure": {
+        "prompt_index": 0,
+        "step": 0,
+        "outside_tolerance": 1847511,
+        "logits": 4861952,
+        "max_abs_error": 0.453125,
+        "greedy_token_match": true,
+        "rtol": 0.016,
+        "atol": 0.02
+      },
+      "graphs": 2,
+      "graph_breaks": {},
+      "raw_sha256": "5a59e2e6f22fcb88f1bc9b8372418730721720fbc155ec327a96d1a89ca6cbe1"
+    },
+    "hub-automatic": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": true,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "hub_config": {
+        "name": "automatic",
+        "use_kernels": true,
+        "python": "import torch\nfrom transformers import AutoModelForCausalLM\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    'Qwen/Qwen3-0.6B',\n    revision='c1899de289a04d12100db370d81485cdf75e47ca',\n    dtype=torch.bfloat16,\n    device_map='mps',\n    use_kernels=True,\n).eval()"
+      },
+      "reference": "native with the same regional compilation",
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "bindings": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 113
+      },
+      "bound_module_calls": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 226
+      },
+      "attention_interface_calls": 0,
+      "checks": [],
+      "verdict": "incorrect",
+      "failure": {
+        "prompt_index": 0,
+        "step": 0,
+        "outside_tolerance": 1431851,
+        "logits": 4861952,
+        "max_abs_error": 0.453125,
+        "greedy_token_match": true,
+        "rtol": 0.016,
+        "atol": 0.02
+      },
+      "graphs": 4,
+      "graph_breaks": {},
+      "raw_sha256": "0d82c69e5ad27264b6d41744037df09f2a445649d3aca14a46c524ca0846f1b4"
+    },
+    "hub-combined": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": true,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "hub_config": {
+        "name": "combined",
+        "use_kernels": true,
+        "kernel_mapping": {
+          "RMSNorm": [
+            "kernels-community/mlx-rmsnorm:RMSNorm",
+            {
+              "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc"
+            }
+          ]
+        },
+        "inherit_mapping": false,
+        "attn_implementation": "kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32",
+        "python": "import torch\nfrom transformers import AutoModelForCausalLM, KernelConfig\n\nselection = KernelConfig(\n    kernel_mapping={'RMSNorm': ('kernels-community/mlx-rmsnorm:RMSNorm',\n             {'revision': 'd5793d964608e8e1ee2c4de42e83341b72e5f3dc'})},\n    inherit_mapping=False,\n)\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    'Qwen/Qwen3-0.6B',\n    revision='c1899de289a04d12100db370d81485cdf75e47ca',\n    dtype=torch.bfloat16,\n    device_map='mps',\n    use_kernels=True,\n    kernel_config=selection,\n    attn_implementation='kernels-community/metal-flash-sdpa@288199f52663a36544b31fe7b69f53586eb7be32',\n).eval()"
+      },
+      "reference": "native with the same regional compilation",
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "bindings": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 113
+      },
+      "bound_module_calls": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 226
+      },
+      "attention_interface_calls": 56,
+      "checks": [],
+      "verdict": "incorrect",
+      "failure": {
+        "prompt_index": 0,
+        "step": 0,
+        "outside_tolerance": 1847279,
+        "logits": 4861952,
+        "max_abs_error": 0.4140625,
+        "greedy_token_match": true,
+        "rtol": 0.016,
+        "atol": 0.02
+      },
+      "graphs": 4,
+      "graph_breaks": {},
+      "raw_sha256": "cfc17813961b59ebb049b9a0e41fba48f6551aaf1d3102a242a9934aaead9ebd"
+    },
+    "hub-selective": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": true,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "hub_config": {
+        "name": "selective",
+        "use_kernels": true,
+        "kernel_mapping": {
+          "RMSNorm": [
+            "kernels-community/mlx-rmsnorm:RMSNorm",
+            {
+              "revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc"
+            }
+          ]
+        },
+        "inherit_mapping": false,
+        "python": "import torch\nfrom transformers import AutoModelForCausalLM, KernelConfig\n\nselection = KernelConfig(\n    kernel_mapping={'RMSNorm': ('kernels-community/mlx-rmsnorm:RMSNorm',\n             {'revision': 'd5793d964608e8e1ee2c4de42e83341b72e5f3dc'})},\n    inherit_mapping=False,\n)\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    'Qwen/Qwen3-0.6B',\n    revision='c1899de289a04d12100db370d81485cdf75e47ca',\n    dtype=torch.bfloat16,\n    device_map='mps',\n    use_kernels=True,\n    kernel_config=selection,\n).eval()"
+      },
+      "reference": "native with the same regional compilation",
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "bindings": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 113
+      },
+      "bound_module_calls": {
+        "kernels-community/mlx-rmsnorm:RMSNorm": 226
+      },
+      "attention_interface_calls": 0,
+      "checks": [],
+      "verdict": "incorrect",
+      "failure": {
+        "prompt_index": 0,
+        "step": 0,
+        "outside_tolerance": 1431851,
+        "logits": 4861952,
+        "max_abs_error": 0.453125,
+        "greedy_token_match": true,
+        "rtol": 0.016,
+        "atol": 0.02
+      },
+      "graphs": 4,
+      "graph_breaks": {},
+      "raw_sha256": "0bdb8155d9887c3c3d8360160d28790f006206083b250425b039f4d5f63cbabe"
+    },
+    "mlp-only": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "decode_only": false,
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 0,
+          "logits": 1063552,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 0.7722970829927363,
+      "reference_cache": "DynamicCache",
+      "actual_cache": "DynamicCache",
+      "verdict": "faster",
+      "timing": {
+        "prefill": {
+          "incumbent_ms": 23.663729,
+          "candidate_ms": 19.274271,
+          "noise_ms": 0.19824999999999982,
+          "floor_ms": 0.23663729,
+          "median_paired_saving_ms": 4.296270999999999,
+          "wins_above_floor": 24,
+          "losses_above_floor": 0
+        },
+        "decode": {
+          "incumbent_ms": 16.2341245,
+          "candidate_ms": 16.461354,
+          "noise_ms": 0.30581249999999827,
+          "floor_ms": 0.30581249999999827,
+          "median_paired_saving_ms": -0.38591700000000007,
+          "wins_above_floor": 0,
+          "losses_above_floor": 14
+        },
+        "total": {
+          "incumbent_ms": 39.90139550000001,
+          "candidate_ms": 35.697103999999996,
+          "noise_ms": 0.4590629999999969,
+          "floor_ms": 0.4590629999999969,
+          "median_paired_saving_ms": 4.172791500000002,
+          "wins_above_floor": 24,
+          "losses_above_floor": 0
+        }
+      },
+      "graphs": 3,
+      "graph_breaks": {},
+      "raw_sha256": "bd5a486c3ce24035663a5dac529d28cbf5e48278e29054fbf2af8f09c372fade",
+      "paired_total_ms": {
+        "incumbent": [
+          38.769459,
+          40.887917,
+          40.724833,
+          41.648333,
+          39.477959,
+          40.247667,
+          39.927375,
+          39.423416,
+          38.676458,
+          39.700416,
+          39.921208,
+          39.893666,
+          41.364916,
+          41.22375,
+          40.13825,
+          39.177917,
+          39.382667,
+          40.056,
+          40.982167,
+          39.909125,
+          39.1615,
+          39.492208,
+          38.979083,
+          39.793541
+        ],
+        "control": [
+          40.07075,
+          41.958375,
+          39.376833,
+          39.782542,
+          39.52825,
+          39.44475,
+          38.757208,
+          39.480333,
+          39.357291,
+          39.634,
+          39.677167,
+          39.349041,
+          41.662083,
+          41.196583,
+          40.562,
+          39.414625,
+          38.930916,
+          39.589625,
+          41.345834,
+          39.540584,
+          39.339375,
+          40.225542,
+          40.101333,
+          39.183375
+        ],
+        "candidate": [
+          36.457541,
+          36.919875,
+          37.063333,
+          36.24125,
+          35.686125,
+          35.725042,
+          35.160334,
+          35.359209,
+          36.399334,
+          35.186833,
+          36.117041,
+          35.694458,
+          37.125541,
+          36.241084,
+          35.69975,
+          35.405167,
+          35.236292,
+          35.548084,
+          36.368917,
+          35.791084,
+          35.5245,
+          34.987083,
+          35.47225,
+          35.553833
+        ]
+      }
+    },
+    "mlp-repeat": {
+      "cache": "dynamic",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "decode_only": false,
+      "preserve_casts": true,
+      "mlp_only": true,
+      "compiled_mlp_sites": 28,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 1,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 0,
+          "logits": 1063552,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 2,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 0.4834464169689454,
+      "reference_cache": "DynamicCache",
+      "actual_cache": "DynamicCache",
+      "verdict": "faster",
+      "timing": {
+        "prefill": {
+          "incumbent_ms": 23.7672295,
+          "candidate_ms": 19.112145499999997,
+          "noise_ms": 0.3172914999999996,
+          "floor_ms": 0.3172914999999996,
+          "median_paired_saving_ms": 4.582979499999999,
+          "wins_above_floor": 24,
+          "losses_above_floor": 0
+        },
+        "decode": {
+          "incumbent_ms": 16.261021,
+          "candidate_ms": 16.709249999999997,
+          "noise_ms": 0.27462499999999856,
+          "floor_ms": 0.27462499999999856,
+          "median_paired_saving_ms": -0.3413540000000008,
+          "wins_above_floor": 0,
+          "losses_above_floor": 13
+        },
+        "total": {
+          "incumbent_ms": 39.94125,
+          "candidate_ms": 36.067896000000005,
+          "noise_ms": 0.4819375000000008,
+          "floor_ms": 0.4819375000000008,
+          "median_paired_saving_ms": 4.335895999999998,
+          "wins_above_floor": 24,
+          "losses_above_floor": 0
+        }
+      },
+      "graphs": 3,
+      "graph_breaks": {},
+      "raw_sha256": "8af7d12229ac4ffa4ee65fb70b57491adfeec74dd6dc7038347dc4f70f56cbd1",
+      "paired_total_ms": {
+        "incumbent": [
+          39.381334,
+          39.32275,
+          39.827042,
+          41.967959,
+          41.131083,
+          40.143709,
+          39.478625,
+          39.459333,
+          39.07775,
+          41.34525,
+          41.646375,
+          39.675958,
+          39.586542,
+          39.428667,
+          39.017542,
+          41.949292,
+          41.634833,
+          38.998042,
+          39.271833,
+          41.378417,
+          40.967417,
+          40.8945,
+          40.91075,
+          40.055458
+        ],
+        "control": [
+          40.26725,
+          39.832875,
+          39.601792,
+          40.278084,
+          40.299542,
+          40.389291,
+          39.478416,
+          39.444459,
+          39.370333,
+          40.38625,
+          40.897,
+          39.549125,
+          39.906375,
+          38.974917,
+          38.645292,
+          42.130333,
+          39.762667,
+          39.7195,
+          39.877583,
+          40.29,
+          40.287375,
+          42.334167,
+          40.746583,
+          39.642709
+        ],
+        "candidate": [
+          35.129125,
+          35.90075,
+          35.045958,
+          36.472833,
+          36.7115,
+          36.944125,
+          34.857958,
+          34.799875,
+          35.5145,
+          36.235042,
+          36.7755,
+          34.54525,
+          34.765792,
+          34.880583,
+          35.548291,
+          37.21825,
+          37.457916,
+          34.8495,
+          36.438375,
+          37.599917,
+          37.141417,
+          35.592542,
+          36.808334,
+          36.785083
+        ]
+      }
+    },
+    "static-decode-only": {
+      "cache": "static",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "decode_only": true,
+      "preserve_casts": false,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 0,
+          "max_abs_error": 0.0,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 64822,
+          "max_abs_error": 0.375,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 8.339105291990563,
+      "reference_cache": "StaticCache",
+      "actual_cache": "StaticCache",
+      "verdict": "failed_logits",
+      "graphs": 1,
+      "graph_breaks": {},
+      "raw_sha256": "d82d36c849a28e25b6ad97e1767063cd5b1b05e0d24e19320368dfd848a2e970"
+    },
+    "static-preserve-casts": {
+      "cache": "static",
+      "backend": "inductor",
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware": "Apple M5",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "dtype": "torch.bfloat16",
+      "attention": "sdpa",
+      "prompt_length": 32,
+      "cached_steps": 1,
+      "use_kernels": false,
+      "rtol": 0.016,
+      "atol": 0.02,
+      "decode_only": false,
+      "preserve_casts": true,
+      "checks": [
+        {
+          "prompt": 0,
+          "step": 0,
+          "logits": 4861952,
+          "outside_tolerance": 1431851,
+          "max_abs_error": 0.453125,
+          "greedy_match": true
+        },
+        {
+          "prompt": 0,
+          "step": 1,
+          "logits": 151936,
+          "outside_tolerance": 69662,
+          "max_abs_error": 0.421875,
+          "greedy_match": true
+        }
+      ],
+      "first_candidate_check_seconds": 16.925691250013188,
+      "reference_cache": "StaticCache",
+      "actual_cache": "StaticCache",
+      "verdict": "failed_logits",
+      "graphs": 2,
+      "graph_breaks": {},
+      "raw_sha256": "5590e864ccd8aec3c810e8dc1e98c2968915ddf913d15e9768917a7874a12409"
+    }
+  }
+}

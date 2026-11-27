@@ -1,0 +1,183 @@
+{
+  "timestamp": "2026-11-26T08:37:08.184652+00:00",
+  "kernel_id": "kernels-community/mlx-rmsnorm",
+  "kernel_revision": "d5793d964608e8e1ee2c4de42e83341b72e5f3dc",
+  "torch": "2.15.0",
+  "kernels": "0.18.2",
+  "backend": "metal",
+  "dtype": "float32",
+  "eps": 1e-05,
+  "seed": 0,
+  "rtol": 1e-05,
+  "atol": 1e-06,
+  "cases": [
+    {
+      "shape": [
+        2,
+        1,
+        16
+      ],
+      "stride": [
+        16,
+        16,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 2.384185791015625e-07
+    },
+    {
+      "shape": [
+        2,
+        1,
+        16
+      ],
+      "stride": [
+        32,
+        32,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        32,
+        16
+      ],
+      "stride": [
+        512,
+        16,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        32,
+        16
+      ],
+      "stride": [
+        1024,
+        32,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        1,
+        64
+      ],
+      "stride": [
+        64,
+        64,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        1,
+        64
+      ],
+      "stride": [
+        128,
+        128,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        32,
+        64
+      ],
+      "stride": [
+        2048,
+        64,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        32,
+        64
+      ],
+      "stride": [
+        4096,
+        128,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape": [
+        2,
+        1,
+        576
+      ],
+      "stride": [
+        576,
+        576,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        1,
+        576
+      ],
+      "stride": [
+        1152,
+        1152,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape": [
+        2,
+        32,
+        576
+      ],
+      "stride": [
+        18432,
+        576,
+        1
+      ],
+      "passed": true,
+      "max_abs_error": 1.430511474609375e-06
+    },
+    {
+      "shape": [
+        2,
+        32,
+        576
+      ],
+      "stride": [
+        36864,
+        1152,
+        2
+      ],
+      "passed": true,
+      "max_abs_error": 9.5367431640625e-07
+    }
+  ]
+}

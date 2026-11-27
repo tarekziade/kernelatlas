@@ -1,0 +1,137 @@
+{
+  "pattern": "weighted_last_dim_rmsnorm_fp32",
+  "trace": "prefill.events.json",
+  "implementation": "torch.nn.functional.rms_norm",
+  "occurrences": {
+    "model.layers.0.input_layernorm": {
+      "trace_event_id": 56,
+      "width": 64,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-06);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.0.post_attention_layernorm": {
+      "trace_event_id": 189,
+      "width": 64,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-06);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.1.input_layernorm": {
+      "trace_event_id": 231,
+      "width": 64,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-06);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.1.post_attention_layernorm": {
+      "trace_event_id": 364,
+      "width": 64,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-06);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.norm": {
+      "trace_event_id": 405,
+      "width": 64,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-06);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    }
+  },
+  "max_abs_logits_error_by_step": [
+    1.4901161193847656e-07,
+    8.940696716308594e-08,
+    8.940696716308594e-08,
+    5.960464477539063e-08
+  ],
+  "greedy_tokens_match": true,
+  "isolated_ms_by_width": {
+    "64": {
+      "baseline": [
+        0.326875,
+        0.327875,
+        0.313792,
+        0.36,
+        0.311334,
+        0.329667,
+        0.326958,
+        0.320834,
+        0.317792,
+        0.320541,
+        0.31425,
+        0.283875,
+        0.341417,
+        0.339542,
+        0.334625,
+        0.324375,
+        0.324667,
+        0.329291,
+        0.318584,
+        0.300958
+      ],
+      "candidate": [
+        0.307167,
+        0.294708,
+        0.306375,
+        0.294875,
+        0.293084,
+        0.284542,
+        0.30875,
+        0.300041,
+        0.298666,
+        0.316584,
+        0.300917,
+        0.316916,
+        0.287167,
+        0.310166,
+        0.3145,
+        0.303333,
+        0.296584,
+        0.3095,
+        0.326208,
+        0.268375
+      ]
+    }
+  },
+  "prefill_ms": {
+    "baseline": [
+      1.358416,
+      1.370875,
+      1.318375,
+      1.344042,
+      1.290333,
+      1.316,
+      1.318417,
+      1.31375,
+      1.334667,
+      1.336375,
+      1.289791,
+      1.324834,
+      1.454833,
+      1.303708,
+      1.30525,
+      1.329583,
+      1.363125,
+      1.329,
+      1.324,
+      1.342125
+    ],
+    "candidate": [
+      1.137208,
+      1.3625,
+      1.130334,
+      1.133667,
+      1.120042,
+      1.196584,
+      1.188875,
+      1.172417,
+      1.510833,
+      1.1865,
+      1.192042,
+      1.132625,
+      1.206541,
+      1.183666,
+      1.157375,
+      1.128375,
+      1.122834,
+      1.165833,
+      1.214583,
+      1.127125
+    ]
+  },
+  "median_prefill_ms": {
+    "baseline": 1.326917,
+    "candidate": 1.169125
+  }
+}

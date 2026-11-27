@@ -1,0 +1,1216 @@
+{
+  "timing": "Batch one, 32 fixed tokens. Three fresh processes per model, each with 4 warmup and 20 timed pairs, alternating execution order and synchronizing at boundaries. Positive paired savings favor the Metal candidate. Decode was checked for correctness only.",
+  "correctness": "Single isolated BF16 random input at the captured signature and prefill plus one fixed-token decode on three prompts. Reported errors are maximum absolute logit differences.",
+  "hub_trial": {
+    "repo_id": "kernels-community/activation",
+    "revision": "11cfee566df4a3fc23ec93132a260dfd1f9de9d2",
+    "symbol": "silu_and_mul",
+    "device": "Apple M5",
+    "torch": "2.15.0",
+    "input": "BF16, two [1,32,1536] tensors concatenated along the last dimension; separate output [1,32,1536]",
+    "error": "RuntimeError: Unsupported data type: BFloat16",
+    "timed": false
+  },
+  "trials": [
+    {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "qwen17-readable-final-162311",
+      "shape": [
+        1,
+        32,
+        6144
+      ],
+      "sites": 28,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.206417,
+            "candidate": 0.174916
+          },
+          {
+            "candidate": 0.192375,
+            "baseline": 0.192958
+          },
+          {
+            "baseline": 0.175792,
+            "candidate": 0.187708
+          },
+          {
+            "candidate": 0.202625,
+            "baseline": 0.214042
+          },
+          {
+            "baseline": 0.197584,
+            "candidate": 0.111541
+          },
+          {
+            "candidate": 0.244917,
+            "baseline": 0.111125
+          },
+          {
+            "baseline": 0.178667,
+            "candidate": 0.192166
+          },
+          {
+            "candidate": 0.197959,
+            "baseline": 0.181167
+          },
+          {
+            "baseline": 0.202291,
+            "candidate": 0.202667
+          },
+          {
+            "candidate": 0.203542,
+            "baseline": 0.201792
+          },
+          {
+            "baseline": 0.18025,
+            "candidate": 0.21675
+          },
+          {
+            "candidate": 0.176625,
+            "baseline": 0.186916
+          },
+          {
+            "baseline": 0.194083,
+            "candidate": 0.179166
+          },
+          {
+            "candidate": 0.201042,
+            "baseline": 0.205041
+          },
+          {
+            "baseline": 0.186125,
+            "candidate": 0.203542
+          },
+          {
+            "candidate": 0.209208,
+            "baseline": 0.196166
+          },
+          {
+            "baseline": 0.2045,
+            "candidate": 0.188333
+          },
+          {
+            "candidate": 0.187584,
+            "baseline": 0.208333
+          },
+          {
+            "baseline": 0.199,
+            "candidate": 0.187417
+          },
+          {
+            "candidate": 0.197583,
+            "baseline": 0.195458
+          }
+        ],
+        "baseline_median_ms": 0.19581199999999999,
+        "median_paired_savings_ms": 0.00010349999999999249,
+        "faster_pairs": 10
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 48.506917,
+            "candidate": 47.876334
+          },
+          {
+            "candidate": 48.090541,
+            "baseline": 47.630792
+          },
+          {
+            "baseline": 48.212875,
+            "candidate": 47.291709
+          },
+          {
+            "candidate": 47.78975,
+            "baseline": 47.765875
+          },
+          {
+            "baseline": 48.852375,
+            "candidate": 48.65525
+          },
+          {
+            "candidate": 48.393333,
+            "baseline": 47.539959
+          },
+          {
+            "baseline": 48.5205,
+            "candidate": 47.6205
+          },
+          {
+            "candidate": 48.091291,
+            "baseline": 47.387792
+          },
+          {
+            "baseline": 48.171584,
+            "candidate": 48.472875
+          },
+          {
+            "candidate": 47.981125,
+            "baseline": 48.543
+          },
+          {
+            "baseline": 49.929833,
+            "candidate": 50.424375
+          },
+          {
+            "candidate": 49.677333,
+            "baseline": 48.546792
+          },
+          {
+            "baseline": 48.990334,
+            "candidate": 49.410208
+          },
+          {
+            "candidate": 48.563458,
+            "baseline": 47.969791
+          },
+          {
+            "baseline": 48.253709,
+            "candidate": 49.596958
+          },
+          {
+            "candidate": 48.90775,
+            "baseline": 48.828375
+          },
+          {
+            "baseline": 48.965875,
+            "candidate": 48.390166
+          },
+          {
+            "candidate": 48.175041,
+            "baseline": 48.72925
+          },
+          {
+            "baseline": 49.661458,
+            "candidate": 49.63775
+          },
+          {
+            "candidate": 47.936708,
+            "baseline": 49.308125
+          }
+        ],
+        "baseline_median_ms": 48.53175,
+        "median_paired_savings_ms": -0.05162499999999781,
+        "faster_pairs": 9
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "qwen17-readable-final-162311",
+      "shape": [
+        1,
+        32,
+        6144
+      ],
+      "sites": 28,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.194542,
+            "candidate": 0.20175
+          },
+          {
+            "candidate": 0.197833,
+            "baseline": 0.197792
+          },
+          {
+            "baseline": 0.199583,
+            "candidate": 0.193666
+          },
+          {
+            "candidate": 0.187542,
+            "baseline": 0.209208
+          },
+          {
+            "baseline": 0.20325,
+            "candidate": 0.178542
+          },
+          {
+            "candidate": 0.1895,
+            "baseline": 0.20475
+          },
+          {
+            "baseline": 0.209167,
+            "candidate": 0.191083
+          },
+          {
+            "candidate": 0.178166,
+            "baseline": 0.195584
+          },
+          {
+            "baseline": 0.19675,
+            "candidate": 0.199041
+          },
+          {
+            "candidate": 0.170584,
+            "baseline": 0.206916
+          },
+          {
+            "baseline": 0.206417,
+            "candidate": 0.179208
+          },
+          {
+            "candidate": 0.214375,
+            "baseline": 0.196083
+          },
+          {
+            "baseline": 0.195667,
+            "candidate": 0.185959
+          },
+          {
+            "candidate": 0.20625,
+            "baseline": 0.163541
+          },
+          {
+            "baseline": 0.202375,
+            "candidate": 0.200209
+          },
+          {
+            "candidate": 0.171625,
+            "baseline": 0.206459
+          },
+          {
+            "baseline": 0.153583,
+            "candidate": 0.1985
+          },
+          {
+            "candidate": 0.1995,
+            "baseline": 0.200833
+          },
+          {
+            "baseline": 0.206166,
+            "candidate": 0.184875
+          },
+          {
+            "candidate": 0.183958,
+            "baseline": 0.218083
+          }
+        ],
+        "baseline_median_ms": 0.201604,
+        "median_paired_savings_ms": 0.01247899999999999,
+        "faster_pairs": 14
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 52.530583,
+            "candidate": 49.797917
+          },
+          {
+            "candidate": 47.465333,
+            "baseline": 47.781541
+          },
+          {
+            "baseline": 47.866333,
+            "candidate": 48.906666
+          },
+          {
+            "candidate": 48.69475,
+            "baseline": 48.433916
+          },
+          {
+            "baseline": 49.249791,
+            "candidate": 48.946541
+          },
+          {
+            "candidate": 52.257125,
+            "baseline": 49.030083
+          },
+          {
+            "baseline": 50.554083,
+            "candidate": 49.059125
+          },
+          {
+            "candidate": 48.093833,
+            "baseline": 49.13325
+          },
+          {
+            "baseline": 49.01025,
+            "candidate": 52.123167
+          },
+          {
+            "candidate": 48.822,
+            "baseline": 48.140875
+          },
+          {
+            "baseline": 48.005042,
+            "candidate": 48.408708
+          },
+          {
+            "candidate": 50.696125,
+            "baseline": 50.8845
+          },
+          {
+            "baseline": 50.292417,
+            "candidate": 48.532709
+          },
+          {
+            "candidate": 48.398666,
+            "baseline": 49.193375
+          },
+          {
+            "baseline": 51.127167,
+            "candidate": 48.908916
+          },
+          {
+            "candidate": 49.455334,
+            "baseline": 49.621458
+          },
+          {
+            "baseline": 49.279625,
+            "candidate": 48.610666
+          },
+          {
+            "candidate": 49.823708,
+            "baseline": 48.397
+          },
+          {
+            "baseline": 49.070042,
+            "candidate": 49.296166
+          },
+          {
+            "candidate": 50.739209,
+            "baseline": 51.242166
+          }
+        ],
+        "baseline_median_ms": 49.1633125,
+        "median_paired_savings_ms": 0.24581249999999955,
+        "faster_pairs": 12
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "qwen17-readable-final-162311",
+      "shape": [
+        1,
+        32,
+        6144
+      ],
+      "sites": 28,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.189667,
+            "candidate": 0.191917
+          },
+          {
+            "candidate": 0.198125,
+            "baseline": 0.202875
+          },
+          {
+            "baseline": 0.159959,
+            "candidate": 0.183166
+          },
+          {
+            "candidate": 0.188958,
+            "baseline": 0.222375
+          },
+          {
+            "baseline": 0.142416,
+            "candidate": 0.176375
+          },
+          {
+            "candidate": 0.196875,
+            "baseline": 0.197167
+          },
+          {
+            "baseline": 0.161291,
+            "candidate": 0.191458
+          },
+          {
+            "candidate": 0.194833,
+            "baseline": 0.198875
+          },
+          {
+            "baseline": 0.202,
+            "candidate": 0.222083
+          },
+          {
+            "candidate": 0.189708,
+            "baseline": 0.198125
+          },
+          {
+            "baseline": 0.166375,
+            "candidate": 0.189625
+          },
+          {
+            "candidate": 0.185375,
+            "baseline": 0.20425
+          },
+          {
+            "baseline": 0.158042,
+            "candidate": 0.166166
+          },
+          {
+            "candidate": 0.201,
+            "baseline": 0.201833
+          },
+          {
+            "baseline": 0.249,
+            "candidate": 0.198958
+          },
+          {
+            "candidate": 0.199208,
+            "baseline": 0.170791
+          },
+          {
+            "baseline": 0.184125,
+            "candidate": 0.192125
+          },
+          {
+            "candidate": 0.19025,
+            "baseline": 0.188709
+          },
+          {
+            "baseline": 0.217291,
+            "candidate": 0.195125
+          },
+          {
+            "candidate": 0.199416,
+            "baseline": 0.203083
+          }
+        ],
+        "baseline_median_ms": 0.197646,
+        "median_paired_savings_ms": -0.0006245000000000001,
+        "faster_pairs": 10
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 49.756834,
+            "candidate": 52.160458
+          },
+          {
+            "candidate": 49.41275,
+            "baseline": 49.206709
+          },
+          {
+            "baseline": 49.606792,
+            "candidate": 48.791625
+          },
+          {
+            "candidate": 48.500542,
+            "baseline": 48.41975
+          },
+          {
+            "baseline": 48.162625,
+            "candidate": 48.496958
+          },
+          {
+            "candidate": 47.885917,
+            "baseline": 48.426333
+          },
+          {
+            "baseline": 48.1955,
+            "candidate": 49.477958
+          },
+          {
+            "candidate": 51.021542,
+            "baseline": 53.876625
+          },
+          {
+            "baseline": 51.921542,
+            "candidate": 50.578667
+          },
+          {
+            "candidate": 48.990292,
+            "baseline": 49.425667
+          },
+          {
+            "baseline": 58.838625,
+            "candidate": 50.809959
+          },
+          {
+            "candidate": 49.621875,
+            "baseline": 50.731167
+          },
+          {
+            "baseline": 49.236208,
+            "candidate": 48.429875
+          },
+          {
+            "candidate": 48.101458,
+            "baseline": 56.611666
+          },
+          {
+            "baseline": 66.377416,
+            "candidate": 55.941167
+          },
+          {
+            "candidate": 53.746375,
+            "baseline": 49.908667
+          },
+          {
+            "baseline": 49.246833,
+            "candidate": 50.322583
+          },
+          {
+            "candidate": 48.831167,
+            "baseline": 48.450709
+          },
+          {
+            "baseline": 48.4395,
+            "candidate": 49.111125
+          },
+          {
+            "candidate": 51.294,
+            "baseline": 54.055958
+          }
+        ],
+        "baseline_median_ms": 49.516229499999994,
+        "median_paired_savings_ms": 0.4878955000000005,
+        "faster_pairs": 11
+      }
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "smollm2-auto",
+      "shape": [
+        1,
+        32,
+        1536
+      ],
+      "sites": 30,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.197292,
+            "candidate": 0.210333
+          },
+          {
+            "candidate": 0.2045,
+            "baseline": 0.193417
+          },
+          {
+            "baseline": 0.178875,
+            "candidate": 0.192
+          },
+          {
+            "candidate": 0.184459,
+            "baseline": 0.190208
+          },
+          {
+            "baseline": 0.204,
+            "candidate": 0.204417
+          },
+          {
+            "candidate": 0.193291,
+            "baseline": 0.198625
+          },
+          {
+            "baseline": 0.185375,
+            "candidate": 0.195709
+          },
+          {
+            "candidate": 0.205917,
+            "baseline": 0.17925
+          },
+          {
+            "baseline": 0.197584,
+            "candidate": 0.18275
+          },
+          {
+            "candidate": 0.188459,
+            "baseline": 0.195542
+          },
+          {
+            "baseline": 0.173667,
+            "candidate": 0.218417
+          },
+          {
+            "candidate": 0.19275,
+            "baseline": 0.198292
+          },
+          {
+            "baseline": 0.203333,
+            "candidate": 0.19975
+          },
+          {
+            "candidate": 0.195916,
+            "baseline": 0.20325
+          },
+          {
+            "baseline": 0.222,
+            "candidate": 0.177417
+          },
+          {
+            "candidate": 0.174458,
+            "baseline": 0.186042
+          },
+          {
+            "baseline": 0.1825,
+            "candidate": 0.165875
+          },
+          {
+            "candidate": 0.196959,
+            "baseline": 0.142583
+          },
+          {
+            "baseline": 0.249042,
+            "candidate": 0.091959
+          },
+          {
+            "candidate": 0.190792,
+            "baseline": 0.186292
+          }
+        ],
+        "baseline_median_ms": 0.1944795,
+        "median_paired_savings_ms": 0.004458500000000004,
+        "faster_pairs": 11
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 10.18075,
+            "candidate": 10.463292
+          },
+          {
+            "candidate": 10.292125,
+            "baseline": 10.233833
+          },
+          {
+            "baseline": 10.143125,
+            "candidate": 10.160792
+          },
+          {
+            "candidate": 10.017792,
+            "baseline": 10.534583
+          },
+          {
+            "baseline": 10.298542,
+            "candidate": 10.258334
+          },
+          {
+            "candidate": 10.156709,
+            "baseline": 10.445125
+          },
+          {
+            "baseline": 10.264791,
+            "candidate": 10.259458
+          },
+          {
+            "candidate": 9.89625,
+            "baseline": 9.961709
+          },
+          {
+            "baseline": 10.140333,
+            "candidate": 10.22975
+          },
+          {
+            "candidate": 10.352958,
+            "baseline": 10.208208
+          },
+          {
+            "baseline": 10.269208,
+            "candidate": 10.188042
+          },
+          {
+            "candidate": 10.384708,
+            "baseline": 10.829958
+          },
+          {
+            "baseline": 10.3945,
+            "candidate": 10.397833
+          },
+          {
+            "candidate": 10.821584,
+            "baseline": 10.762166
+          },
+          {
+            "baseline": 10.367375,
+            "candidate": 10.08825
+          },
+          {
+            "candidate": 10.070958,
+            "baseline": 10.244375
+          },
+          {
+            "baseline": 10.377625,
+            "candidate": 9.876083
+          },
+          {
+            "candidate": 9.934,
+            "baseline": 10.119667
+          },
+          {
+            "baseline": 10.371792,
+            "candidate": 10.772459
+          },
+          {
+            "candidate": 11.094625,
+            "baseline": 11.526417
+          }
+        ],
+        "baseline_median_ms": 10.283875,
+        "median_paired_savings_ms": 0.0528335000000002,
+        "faster_pairs": 12
+      }
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "smollm2-auto",
+      "shape": [
+        1,
+        32,
+        1536
+      ],
+      "sites": 30,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.262,
+            "candidate": 0.203625
+          },
+          {
+            "candidate": 0.20825,
+            "baseline": 0.162708
+          },
+          {
+            "baseline": 0.148417,
+            "candidate": 0.236042
+          },
+          {
+            "candidate": 0.137875,
+            "baseline": 0.194
+          },
+          {
+            "baseline": 0.1655,
+            "candidate": 0.192625
+          },
+          {
+            "candidate": 0.198792,
+            "baseline": 0.201625
+          },
+          {
+            "baseline": 0.204708,
+            "candidate": 0.203166
+          },
+          {
+            "candidate": 0.112417,
+            "baseline": 0.3265
+          },
+          {
+            "baseline": 0.116167,
+            "candidate": 0.111792
+          },
+          {
+            "candidate": 0.08925,
+            "baseline": 0.186083
+          },
+          {
+            "baseline": 0.194042,
+            "candidate": 0.194625
+          },
+          {
+            "candidate": 0.195,
+            "baseline": 0.201667
+          },
+          {
+            "baseline": 0.197875,
+            "candidate": 0.200167
+          },
+          {
+            "candidate": 0.209167,
+            "baseline": 0.190833
+          },
+          {
+            "baseline": 0.183125,
+            "candidate": 0.1955
+          },
+          {
+            "candidate": 0.216833,
+            "baseline": 0.209083
+          },
+          {
+            "baseline": 0.205083,
+            "candidate": 0.180041
+          },
+          {
+            "candidate": 0.193875,
+            "baseline": 0.19825
+          },
+          {
+            "baseline": 0.201667,
+            "candidate": 0.196083
+          },
+          {
+            "candidate": 0.203333,
+            "baseline": 0.217209
+          }
+        ],
+        "baseline_median_ms": 0.1980625,
+        "median_paired_savings_ms": 0.003604000000000003,
+        "faster_pairs": 12
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 10.680958,
+            "candidate": 10.6715
+          },
+          {
+            "candidate": 10.697166,
+            "baseline": 10.64825
+          },
+          {
+            "baseline": 10.804375,
+            "candidate": 11.107542
+          },
+          {
+            "candidate": 10.565875,
+            "baseline": 10.957375
+          },
+          {
+            "baseline": 11.939167,
+            "candidate": 10.569916
+          },
+          {
+            "candidate": 10.386916,
+            "baseline": 10.498084
+          },
+          {
+            "baseline": 10.578709,
+            "candidate": 10.522875
+          },
+          {
+            "candidate": 10.458708,
+            "baseline": 10.571041
+          },
+          {
+            "baseline": 10.436958,
+            "candidate": 10.925208
+          },
+          {
+            "candidate": 10.454125,
+            "baseline": 10.51375
+          },
+          {
+            "baseline": 10.803417,
+            "candidate": 10.787417
+          },
+          {
+            "candidate": 10.659375,
+            "baseline": 10.953166
+          },
+          {
+            "baseline": 10.364917,
+            "candidate": 10.535083
+          },
+          {
+            "candidate": 10.973084,
+            "baseline": 10.46725
+          },
+          {
+            "baseline": 10.445792,
+            "candidate": 11.006667
+          },
+          {
+            "candidate": 10.936708,
+            "baseline": 10.3235
+          },
+          {
+            "baseline": 10.707917,
+            "candidate": 10.716583
+          },
+          {
+            "candidate": 10.301458,
+            "baseline": 10.384875
+          },
+          {
+            "baseline": 11.014334,
+            "candidate": 11.003084
+          },
+          {
+            "candidate": 10.704375,
+            "baseline": 10.853125
+          }
+        ],
+        "baseline_median_ms": 10.6134795,
+        "median_paired_savings_ms": 0.01362500000000022,
+        "faster_pairs": 12
+      }
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "torch": "2.15.0",
+      "transformers": "5.24.1",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "hardware": "Apple M5",
+      "dtype": "bfloat16",
+      "profile": "smollm2-auto",
+      "shape": [
+        1,
+        32,
+        1536
+      ],
+      "sites": 30,
+      "synthetic_input_max_abs_error": 0.0,
+      "model_max_abs_errors_prefill_decode": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_on_tested_inputs": true,
+      "isolated": {
+        "pairs_ms": [
+          {
+            "baseline": 0.170916,
+            "candidate": 0.19
+          },
+          {
+            "candidate": 0.191417,
+            "baseline": 0.209833
+          },
+          {
+            "baseline": 0.16575,
+            "candidate": 0.207209
+          },
+          {
+            "candidate": 0.179167,
+            "baseline": 0.180291
+          },
+          {
+            "baseline": 0.209958,
+            "candidate": 0.164959
+          },
+          {
+            "candidate": 0.211,
+            "baseline": 0.194292
+          },
+          {
+            "baseline": 0.195125,
+            "candidate": 0.194042
+          },
+          {
+            "candidate": 0.186417,
+            "baseline": 0.23025
+          },
+          {
+            "baseline": 0.211791,
+            "candidate": 0.173
+          },
+          {
+            "candidate": 0.298417,
+            "baseline": 0.169834
+          },
+          {
+            "baseline": 0.229125,
+            "candidate": 0.188125
+          },
+          {
+            "candidate": 0.1575,
+            "baseline": 0.199166
+          },
+          {
+            "baseline": 0.198084,
+            "candidate": 0.1955
+          },
+          {
+            "candidate": 0.197334,
+            "baseline": 0.202791
+          },
+          {
+            "baseline": 0.220458,
+            "candidate": 0.188625
+          },
+          {
+            "candidate": 0.188792,
+            "baseline": 0.195791
+          },
+          {
+            "baseline": 0.201125,
+            "candidate": 0.183459
+          },
+          {
+            "candidate": 0.19775,
+            "baseline": 0.16475
+          },
+          {
+            "baseline": 0.198375,
+            "candidate": 0.197416
+          },
+          {
+            "candidate": 0.213625,
+            "baseline": 0.192292
+          }
+        ],
+        "baseline_median_ms": 0.1982295,
+        "median_paired_savings_ms": 0.004020499999999996,
+        "faster_pairs": 14
+      },
+      "prefill": {
+        "pairs_ms": [
+          {
+            "baseline": 12.66975,
+            "candidate": 11.722917
+          },
+          {
+            "candidate": 12.252291,
+            "baseline": 11.486833
+          },
+          {
+            "baseline": 12.918166,
+            "candidate": 11.374
+          },
+          {
+            "candidate": 10.65,
+            "baseline": 11.191
+          },
+          {
+            "baseline": 10.76925,
+            "candidate": 10.752166
+          },
+          {
+            "candidate": 11.308875,
+            "baseline": 11.345834
+          },
+          {
+            "baseline": 10.81075,
+            "candidate": 10.932042
+          },
+          {
+            "candidate": 11.119375,
+            "baseline": 10.728125
+          },
+          {
+            "baseline": 11.447625,
+            "candidate": 10.797083
+          },
+          {
+            "candidate": 10.763291,
+            "baseline": 11.381667
+          },
+          {
+            "baseline": 11.245125,
+            "candidate": 11.345625
+          },
+          {
+            "candidate": 11.327167,
+            "baseline": 10.852042
+          },
+          {
+            "baseline": 10.92075,
+            "candidate": 12.101708
+          },
+          {
+            "candidate": 11.064291,
+            "baseline": 11.071875
+          },
+          {
+            "baseline": 11.786291,
+            "candidate": 12.438417
+          },
+          {
+            "candidate": 11.162917,
+            "baseline": 11.478333
+          },
+          {
+            "baseline": 11.050375,
+            "candidate": 10.989458
+          },
+          {
+            "candidate": 11.472458,
+            "baseline": 11.773166
+          },
+          {
+            "baseline": 11.222042,
+            "candidate": 13.793958
+          },
+          {
+            "candidate": 14.703334,
+            "baseline": 12.419209
+          }
+        ],
+        "baseline_median_ms": 11.295479499999999,
+        "median_paired_savings_ms": 0.012333999999999179,
+        "faster_pairs": 11
+      }
+    }
+  ]
+}

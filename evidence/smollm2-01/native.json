@@ -1,0 +1,379 @@
+{
+  "pattern": "weighted_last_dim_rmsnorm_fp32",
+  "trace": "prefill.events.json",
+  "implementation": "torch.nn.functional.rms_norm",
+  "occurrences": {
+    "model.layers.0.input_layernorm": {
+      "trace_event_id": 56,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.0.post_attention_layernorm": {
+      "trace_event_id": 162,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.1.input_layernorm": {
+      "trace_event_id": 204,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.1.post_attention_layernorm": {
+      "trace_event_id": 310,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.2.input_layernorm": {
+      "trace_event_id": 352,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.2.post_attention_layernorm": {
+      "trace_event_id": 458,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.3.input_layernorm": {
+      "trace_event_id": 500,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.3.post_attention_layernorm": {
+      "trace_event_id": 606,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.4.input_layernorm": {
+      "trace_event_id": 648,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.4.post_attention_layernorm": {
+      "trace_event_id": 754,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.5.input_layernorm": {
+      "trace_event_id": 796,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.5.post_attention_layernorm": {
+      "trace_event_id": 902,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.6.input_layernorm": {
+      "trace_event_id": 944,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.6.post_attention_layernorm": {
+      "trace_event_id": 1050,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.7.input_layernorm": {
+      "trace_event_id": 1092,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.7.post_attention_layernorm": {
+      "trace_event_id": 1198,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.8.input_layernorm": {
+      "trace_event_id": 1240,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.8.post_attention_layernorm": {
+      "trace_event_id": 1346,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.9.input_layernorm": {
+      "trace_event_id": 1388,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.9.post_attention_layernorm": {
+      "trace_event_id": 1494,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.10.input_layernorm": {
+      "trace_event_id": 1536,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.10.post_attention_layernorm": {
+      "trace_event_id": 1642,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.11.input_layernorm": {
+      "trace_event_id": 1684,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.11.post_attention_layernorm": {
+      "trace_event_id": 1790,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.12.input_layernorm": {
+      "trace_event_id": 1832,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.12.post_attention_layernorm": {
+      "trace_event_id": 1938,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.13.input_layernorm": {
+      "trace_event_id": 1980,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.13.post_attention_layernorm": {
+      "trace_event_id": 2086,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.14.input_layernorm": {
+      "trace_event_id": 2128,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.14.post_attention_layernorm": {
+      "trace_event_id": 2234,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.15.input_layernorm": {
+      "trace_event_id": 2276,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.15.post_attention_layernorm": {
+      "trace_event_id": 2382,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.16.input_layernorm": {
+      "trace_event_id": 2424,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.16.post_attention_layernorm": {
+      "trace_event_id": 2530,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.17.input_layernorm": {
+      "trace_event_id": 2572,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.17.post_attention_layernorm": {
+      "trace_event_id": 2678,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.18.input_layernorm": {
+      "trace_event_id": 2720,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.18.post_attention_layernorm": {
+      "trace_event_id": 2826,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.19.input_layernorm": {
+      "trace_event_id": 2868,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.19.post_attention_layernorm": {
+      "trace_event_id": 2974,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.20.input_layernorm": {
+      "trace_event_id": 3016,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.20.post_attention_layernorm": {
+      "trace_event_id": 3122,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.21.input_layernorm": {
+      "trace_event_id": 3164,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.21.post_attention_layernorm": {
+      "trace_event_id": 3270,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.22.input_layernorm": {
+      "trace_event_id": 3312,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.22.post_attention_layernorm": {
+      "trace_event_id": 3418,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.23.input_layernorm": {
+      "trace_event_id": 3460,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.23.post_attention_layernorm": {
+      "trace_event_id": 3566,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.24.input_layernorm": {
+      "trace_event_id": 3608,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.24.post_attention_layernorm": {
+      "trace_event_id": 3714,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.25.input_layernorm": {
+      "trace_event_id": 3756,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.25.post_attention_layernorm": {
+      "trace_event_id": 3862,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.26.input_layernorm": {
+      "trace_event_id": 3904,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.26.post_attention_layernorm": {
+      "trace_event_id": 4010,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.27.input_layernorm": {
+      "trace_event_id": 4052,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.27.post_attention_layernorm": {
+      "trace_event_id": 4158,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.28.input_layernorm": {
+      "trace_event_id": 4200,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.28.post_attention_layernorm": {
+      "trace_event_id": 4306,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.29.input_layernorm": {
+      "trace_event_id": 4348,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.layers.29.post_attention_layernorm": {
+      "trace_event_id": 4454,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    },
+    "model.norm": {
+      "trace_event_id": 4495,
+      "width": 576,
+      "graph": "\n\n\ndef forward(self, x_1):\n    pow_1 = torch.ops.aten.pow.Tensor_Scalar(x_1, 2)\n    mean = torch.ops.aten.mean.dim(pow_1, [-1], True);  pow_1 = None\n    add = torch.ops.aten.add.Tensor(mean, 1e-05);  mean = None\n    rsqrt = torch.ops.aten.rsqrt.default(add);  add = None\n    mul = torch.ops.aten.mul.Tensor(x_1, rsqrt);  x_1 = rsqrt = None\n    _param_constant0 = self._param_constant0\n    mul_1 = torch.ops.aten.mul.Tensor(_param_constant0, mul);  _param_constant0 = mul = None\n    return mul_1\n    "
+    }
+  },
+  "max_abs_logits_error_by_step": [
+    0.0015368461608886719,
+    3.0517578125e-05,
+    1.52587890625e-05,
+    1.52587890625e-05
+  ],
+  "greedy_tokens_match": true,
+  "logits_tolerance": {
+    "rtol": 0.0001,
+    "atol": 1e-05
+  },
+  "mismatched_logits_by_step": [
+    24966,
+    0,
+    0,
+    0
+  ],
+  "correctness": "rejected",
+  "isolated_ms_by_width": {
+    "576": {
+      "baseline": [
+        0.517334,
+        0.540875,
+        0.530708,
+        0.333209,
+        0.319042,
+        1.516834,
+        0.5775,
+        0.610042,
+        0.544959,
+        0.513333,
+        0.333375,
+        0.337875,
+        0.320708,
+        0.3365,
+        0.334333,
+        0.770458,
+        0.741125,
+        0.369291,
+        0.311666,
+        0.339208
+      ],
+      "candidate": [
+        0.4855,
+        0.505125,
+        0.309209,
+        0.307958,
+        0.290875,
+        0.290833,
+        0.159667,
+        0.137916,
+        0.494834,
+        0.47975,
+        0.275208,
+        0.294125,
+        0.303125,
+        0.296,
+        0.298667,
+        0.346458,
+        0.200416,
+        0.170292,
+        0.294334,
+        0.314667
+      ]
+    }
+  },
+  "prefill_ms": null
+}

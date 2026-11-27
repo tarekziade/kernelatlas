@@ -1,0 +1,127 @@
+{
+  "timestamp": "2026-11-26T08:19:59.312696+00:00",
+  "weights": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "config": {
+    "transformers_version": "5.20.1",
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": "float32",
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 49152,
+    "hidden_size": 576,
+    "intermediate_size": 1536,
+    "num_hidden_layers": 30,
+    "num_attention_heads": 9,
+    "num_key_value_heads": 3,
+    "hidden_act": "silu",
+    "max_position_embeddings": 8192,
+    "initializer_range": 0.041666666666666664,
+    "rms_norm_eps": 1e-05,
+    "use_cache": true,
+    "pad_token_id": 2,
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pretraining_tp": 1,
+    "tie_word_embeddings": true,
+    "rope_parameters": {
+      "rope_theta": 100000,
+      "rope_type": "default"
+    },
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "mlp_bias": false,
+    "head_dim": 64,
+    "_name_or_path": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "is_llama_config": true,
+    "model_type": "llama",
+    "rope_interleaved": false,
+    "transformers.js_config": {
+      "kv_cache_dtype": {
+        "q4f16": "float16",
+        "fp16": "float16"
+      }
+    },
+    "output_attentions": false
+  },
+  "attention": "sdpa",
+  "dtype": "torch.float32",
+  "device": "mps:0",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.14.1",
+  "transformers": "5.20.1",
+  "gpu_dispatch_attribution": "unvalidated",
+  "phases": {
+    "prefill": {
+      "raw_trace": "prefill.trace.json",
+      "event_file": "prefill.events.json",
+      "aten_host_events": 4110,
+      "module_calls": 396,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        13.771042,
+        13.541667,
+        13.86225,
+        13.875542,
+        13.868208,
+        13.389125,
+        13.92525,
+        13.961417,
+        14.12625
+      ],
+      "median_ms": 13.868208,
+      "output_shape": [
+        1,
+        32,
+        49152
+      ],
+      "cache_length": 32,
+      "profiler_activities": [
+        "CPU"
+      ]
+    },
+    "decode": {
+      "raw_trace": "decode.trace.json",
+      "event_file": "decode.events.json",
+      "aten_host_events": 3510,
+      "module_calls": 396,
+      "latency_method": "host perf_counter_ns around forward with device synchronization at boundaries",
+      "warmup_forwards": 3,
+      "samples_ms": [
+        9.730083,
+        9.696959,
+        9.333875,
+        9.256708,
+        9.306583,
+        9.610625,
+        9.722208,
+        9.850583,
+        9.521167
+      ],
+      "median_ms": 9.610625,
+      "output_shape": [
+        1,
+        1,
+        49152
+      ],
+      "cache_length": 33,
+      "profiler_activities": [
+        "CPU"
+      ]
+    }
+  }
+}

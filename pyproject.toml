@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kernelatlas"
+version = "0.1.0"
+description = "Discover and validate kernel and compilation choices for Transformers inference"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "KernelAtlas contributors" }]
+keywords = ["transformers", "pytorch", "kernels", "profiling", "mps", "cuda"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.urls]
+Homepage = "https://github.com/tarekziade/kernelatlas"
+Repository = "https://github.com/tarekziade/kernelatlas"
+Issues = "https://github.com/tarekziade/kernelatlas/issues"
+
+[project.optional-dependencies]
+profile = ["torch>=2.14", "transformers[kernels]>=5.20.1", "accelerate"]
+release = ["build>=1", "twine>=6.1"]
+
+[project.scripts]
+kernelatlas = "kernelatlas.cli:main"
+
+[tool.setuptools]
+packages = ["kernelatlas"]
+
+[tool.setuptools.package-data]
+kernelatlas = ["rmsnorm_tail.metal"]

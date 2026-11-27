@@ -1,0 +1,453 @@
+{
+  "model_id": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "hardware": "Apple M5",
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "dtype": "torch.bfloat16",
+  "sites": 28,
+  "extra_packed_bytes_during_ab": 1409286144,
+  "workload": "prompt plus one cached token; logits_to_keep=1",
+  "correctness": "Exact individual projections and last-position logits on the three gate-runner prompts",
+  "checked_projection_calls": 168,
+  "verdict": "inconclusive",
+  "timing": {
+    "prefill": {
+      "incumbent_ms": 47.909771,
+      "candidate_ms": 47.9478125,
+      "noise_ms": 0.9841249999999988,
+      "floor_ms": 0.9841249999999988,
+      "median_paired_saving_ms": -0.1378545000000031,
+      "wins_above_floor": 4,
+      "losses_above_floor": 6
+    },
+    "decode": {
+      "incumbent_ms": 36.1106045,
+      "candidate_ms": 35.653208,
+      "noise_ms": 0.7763540000000013,
+      "floor_ms": 0.7763540000000013,
+      "median_paired_saving_ms": 0.30635499999999993,
+      "wins_above_floor": 8,
+      "losses_above_floor": 6
+    },
+    "total": {
+      "incumbent_ms": 84.2524375,
+      "candidate_ms": 83.8234585,
+      "noise_ms": 1.1673749999999998,
+      "floor_ms": 1.1673749999999998,
+      "median_paired_saving_ms": 0.12570800000000304,
+      "wins_above_floor": 7,
+      "losses_above_floor": 4
+    }
+  },
+  "blocks_ms": [
+    {
+      "incumbent": {
+        "prefill": 48.04925,
+        "decode": 36.255417,
+        "total": 84.304667
+      },
+      "control": {
+        "prefill": 48.859417,
+        "decode": 38.406916,
+        "total": 87.266333
+      },
+      "candidate": {
+        "prefill": 51.669833,
+        "decode": 38.845292,
+        "total": 90.515125
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 49.605958,
+        "decode": 49.802209,
+        "total": 99.408167
+      },
+      "candidate": {
+        "prefill": 55.301833,
+        "decode": 40.37425,
+        "total": 95.676083
+      },
+      "control": {
+        "prefill": 52.095042,
+        "decode": 36.767,
+        "total": 88.862042
+      }
+    },
+    {
+      "control": {
+        "prefill": 49.234083,
+        "decode": 35.972959,
+        "total": 85.207042
+      },
+      "incumbent": {
+        "prefill": 49.829208,
+        "decode": 35.33875,
+        "total": 85.167958
+      },
+      "candidate": {
+        "prefill": 47.379375,
+        "decode": 35.885792,
+        "total": 83.265167
+      }
+    },
+    {
+      "control": {
+        "prefill": 47.085375,
+        "decode": 37.997042,
+        "total": 85.082417
+      },
+      "candidate": {
+        "prefill": 49.170292,
+        "decode": 35.833375,
+        "total": 85.003667
+      },
+      "incumbent": {
+        "prefill": 50.031083,
+        "decode": 35.050084,
+        "total": 85.081167
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 47.525916,
+        "decode": 34.550917,
+        "total": 82.076833
+      },
+      "incumbent": {
+        "prefill": 47.043,
+        "decode": 35.730709,
+        "total": 82.773709
+      },
+      "control": {
+        "prefill": 46.691458,
+        "decode": 35.846917,
+        "total": 82.538375
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 47.678458,
+        "decode": 35.254708,
+        "total": 82.933166
+      },
+      "control": {
+        "prefill": 52.228583,
+        "decode": 36.394708,
+        "total": 88.623291
+      },
+      "incumbent": {
+        "prefill": 47.427042,
+        "decode": 34.830791,
+        "total": 82.257833
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 48.933583,
+        "decode": 35.982792,
+        "total": 84.916375
+      },
+      "control": {
+        "prefill": 47.564417,
+        "decode": 36.367083,
+        "total": 83.9315
+      },
+      "candidate": {
+        "prefill": 48.310041,
+        "decode": 35.205542,
+        "total": 83.515583
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 46.832042,
+        "decode": 35.731083,
+        "total": 82.563125
+      },
+      "candidate": {
+        "prefill": 47.309584,
+        "decode": 35.079625,
+        "total": 82.389209
+      },
+      "control": {
+        "prefill": 48.3315,
+        "decode": 34.81125,
+        "total": 83.14275
+      }
+    },
+    {
+      "control": {
+        "prefill": 46.777792,
+        "decode": 35.017625,
+        "total": 81.795417
+      },
+      "incumbent": {
+        "prefill": 48.637666,
+        "decode": 35.721125,
+        "total": 84.358791
+      },
+      "candidate": {
+        "prefill": 49.820166,
+        "decode": 37.949209,
+        "total": 87.769375
+      }
+    },
+    {
+      "control": {
+        "prefill": 48.240667,
+        "decode": 36.802333,
+        "total": 85.043
+      },
+      "candidate": {
+        "prefill": 48.163584,
+        "decode": 36.063458,
+        "total": 84.227042
+      },
+      "incumbent": {
+        "prefill": 48.771916,
+        "decode": 36.792,
+        "total": 85.563916
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 48.246625,
+        "decode": 34.599291,
+        "total": 82.845916
+      },
+      "incumbent": {
+        "prefill": 46.380208,
+        "decode": 36.133792,
+        "total": 82.514
+      },
+      "control": {
+        "prefill": 48.056875,
+        "decode": 36.478375,
+        "total": 84.53525
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 48.559,
+        "decode": 35.581708,
+        "total": 84.140708
+      },
+      "control": {
+        "prefill": 47.473292,
+        "decode": 36.5525,
+        "total": 84.025792
+      },
+      "incumbent": {
+        "prefill": 47.721666,
+        "decode": 35.916959,
+        "total": 83.638625
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 51.284917,
+        "decode": 36.110042,
+        "total": 87.394959
+      },
+      "control": {
+        "prefill": 47.791416,
+        "decode": 35.0985,
+        "total": 82.889916
+      },
+      "candidate": {
+        "prefill": 47.671083,
+        "decode": 35.724708,
+        "total": 83.395791
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 48.012125,
+        "decode": 36.493542,
+        "total": 84.505667
+      },
+      "candidate": {
+        "prefill": 48.070625,
+        "decode": 37.54575,
+        "total": 85.616375
+      },
+      "control": {
+        "prefill": 46.762084,
+        "decode": 35.103958,
+        "total": 81.866042
+      }
+    },
+    {
+      "control": {
+        "prefill": 49.138041,
+        "decode": 35.924542,
+        "total": 85.062583
+      },
+      "incumbent": {
+        "prefill": 47.807417,
+        "decode": 36.388166,
+        "total": 84.195583
+      },
+      "candidate": {
+        "prefill": 47.709208,
+        "decode": 35.4385,
+        "total": 83.147708
+      }
+    },
+    {
+      "control": {
+        "prefill": 47.576417,
+        "decode": 37.318208,
+        "total": 84.894625
+      },
+      "candidate": {
+        "prefill": 47.17975,
+        "decode": 35.472125,
+        "total": 82.651875
+      },
+      "incumbent": {
+        "prefill": 47.4265,
+        "decode": 35.603208,
+        "total": 83.029708
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 46.388833,
+        "decode": 35.058917,
+        "total": 81.44775
+      },
+      "incumbent": {
+        "prefill": 49.791459,
+        "decode": 36.633416,
+        "total": 86.424875
+      },
+      "control": {
+        "prefill": 50.924459,
+        "decode": 35.979333,
+        "total": 86.903792
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 47.71575,
+        "decode": 34.776958,
+        "total": 82.492708
+      },
+      "control": {
+        "prefill": 47.120458,
+        "decode": 37.553375,
+        "total": 84.673833
+      },
+      "incumbent": {
+        "prefill": 47.364833,
+        "decode": 35.054417,
+        "total": 82.41925
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 48.42175,
+        "decode": 36.111167,
+        "total": 84.532917
+      },
+      "control": {
+        "prefill": 47.680417,
+        "decode": 36.675291,
+        "total": 84.355708
+      },
+      "candidate": {
+        "prefill": 47.5035,
+        "decode": 34.2335,
+        "total": 81.737
+      }
+    },
+    {
+      "incumbent": {
+        "prefill": 47.416666,
+        "decode": 36.550125,
+        "total": 83.966791
+      },
+      "candidate": {
+        "prefill": 49.814583,
+        "decode": 37.365834,
+        "total": 87.180417
+      },
+      "control": {
+        "prefill": 46.768917,
+        "decode": 35.700917,
+        "total": 82.469834
+      }
+    },
+    {
+      "control": {
+        "prefill": 48.44925,
+        "decode": 35.893291,
+        "total": 84.342541
+      },
+      "incumbent": {
+        "prefill": 47.614,
+        "decode": 35.547583,
+        "total": 83.161583
+      },
+      "candidate": {
+        "prefill": 47.825,
+        "decode": 37.66675,
+        "total": 85.49175
+      }
+    },
+    {
+      "control": {
+        "prefill": 50.070709,
+        "decode": 35.283291,
+        "total": 85.354
+      },
+      "candidate": {
+        "prefill": 47.544292,
+        "decode": 36.801791,
+        "total": 84.346083
+      },
+      "incumbent": {
+        "prefill": 47.479583,
+        "decode": 36.720625,
+        "total": 84.200208
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 49.3345,
+        "decode": 37.930416,
+        "total": 87.264916
+      },
+      "incumbent": {
+        "prefill": 50.670458,
+        "decode": 37.485459,
+        "total": 88.155917
+      },
+      "control": {
+        "prefill": 50.001041,
+        "decode": 35.935209,
+        "total": 85.93625
+      }
+    },
+    {
+      "candidate": {
+        "prefill": 48.882292,
+        "decode": 35.249042,
+        "total": 84.131334
+      },
+      "control": {
+        "prefill": 47.732,
+        "decode": 35.753792,
+        "total": 83.485792
+      },
+      "incumbent": {
+        "prefill": 47.259042,
+        "decode": 36.149792,
+        "total": 83.408834
+      }
+    }
+  ]
+}

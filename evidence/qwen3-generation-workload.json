@@ -1,0 +1,234 @@
+{
+  "model_id": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "hardware": "Apple M5",
+  "dtype": "bfloat16",
+  "batch_size": 1,
+  "method": "Single process, 4 warmup pairs, then 20 alternating-order pairs per length, host clock synchronized at both boundaries. Timings are of forward calls only. The hook was removed before timing.",
+  "measurements": [
+    {
+      "prompt_length": 32,
+      "output_projection_inputs": {
+        "profile_style_forward": [
+          1,
+          32,
+          2048
+        ],
+        "generate": [
+          1,
+          1,
+          2048
+        ],
+        "last_position_forward": [
+          1,
+          1,
+          2048
+        ]
+      },
+      "cache_lengths": [
+        32,
+        32
+      ],
+      "same_next_token": true,
+      "max_abs_last_logit_difference": 0.03125,
+      "paired_ms": [
+        {
+          "full": 51.376292,
+          "last": 47.79575
+        },
+        {
+          "last": 47.765833,
+          "full": 49.264459
+        },
+        {
+          "full": 49.071458,
+          "last": 47.081083
+        },
+        {
+          "last": 47.225542,
+          "full": 48.990667
+        },
+        {
+          "full": 49.035917,
+          "last": 48.136542
+        },
+        {
+          "last": 46.949833,
+          "full": 49.607208
+        },
+        {
+          "full": 49.375625,
+          "last": 46.953917
+        },
+        {
+          "last": 46.761375,
+          "full": 49.4815
+        },
+        {
+          "full": 48.705459,
+          "last": 47.772083
+        },
+        {
+          "last": 47.225291,
+          "full": 49.091917
+        },
+        {
+          "full": 49.87125,
+          "last": 50.147583
+        },
+        {
+          "last": 47.889958,
+          "full": 49.606042
+        },
+        {
+          "full": 50.463042,
+          "last": 48.253583
+        },
+        {
+          "last": 48.239208,
+          "full": 49.639791
+        },
+        {
+          "full": 50.083166,
+          "last": 46.978875
+        },
+        {
+          "last": 47.372208,
+          "full": 49.095958
+        },
+        {
+          "full": 49.235333,
+          "last": 46.892917
+        },
+        {
+          "last": 48.238667,
+          "full": 50.329542
+        },
+        {
+          "full": 50.412709,
+          "last": 50.059917
+        },
+        {
+          "last": 46.903083,
+          "full": 50.801417
+        }
+      ],
+      "median_full_ms": 49.543771,
+      "median_last_ms": 47.5690205,
+      "median_paired_saving_ms": 1.928500500000002
+    },
+    {
+      "prompt_length": 256,
+      "output_projection_inputs": {
+        "profile_style_forward": [
+          1,
+          256,
+          2048
+        ],
+        "generate": [
+          1,
+          1,
+          2048
+        ],
+        "last_position_forward": [
+          1,
+          1,
+          2048
+        ]
+      },
+      "cache_lengths": [
+        256,
+        256
+      ],
+      "same_next_token": true,
+      "max_abs_last_logit_difference": 0.03125,
+      "paired_ms": [
+        {
+          "full": 98.268917,
+          "last": 93.845459
+        },
+        {
+          "last": 95.280542,
+          "full": 99.955333
+        },
+        {
+          "full": 101.291167,
+          "last": 106.300167
+        },
+        {
+          "last": 94.2715,
+          "full": 98.551916
+        },
+        {
+          "full": 97.987125,
+          "last": 93.069084
+        },
+        {
+          "last": 95.435625,
+          "full": 99.035959
+        },
+        {
+          "full": 100.158042,
+          "last": 95.784042
+        },
+        {
+          "last": 94.375125,
+          "full": 99.252584
+        },
+        {
+          "full": 97.733416,
+          "last": 92.529834
+        },
+        {
+          "last": 96.080291,
+          "full": 101.899708
+        },
+        {
+          "full": 101.005583,
+          "last": 100.660209
+        },
+        {
+          "last": 99.220375,
+          "full": 104.689708
+        },
+        {
+          "full": 103.164,
+          "last": 97.21325
+        },
+        {
+          "last": 103.1935,
+          "full": 101.046917
+        },
+        {
+          "full": 99.33225,
+          "last": 94.662667
+        },
+        {
+          "last": 94.299625,
+          "full": 99.581584
+        },
+        {
+          "full": 99.166333,
+          "last": 94.876459
+        },
+        {
+          "last": 96.215542,
+          "full": 99.973334
+        },
+        {
+          "full": 103.794333,
+          "last": 97.94
+        },
+        {
+          "last": 93.993125,
+          "full": 98.511
+        }
+      ],
+      "median_full_ms": 99.76845850000001,
+      "median_last_ms": 95.35808349999999,
+      "median_paired_saving_ms": 4.593728999999996
+    }
+  ]
+}
